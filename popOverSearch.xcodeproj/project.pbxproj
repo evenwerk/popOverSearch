@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D29C5AF1BB6A424007AF244 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D29C5AE1BB6A424007AF244 /* SearchResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4DD0A8071BB69FAD0044564E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0A8061BB69FAD0044564E /* AppDelegate.swift */; };
 		4DD0A8091BB69FAD0044564E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0A8081BB69FAD0044564E /* ViewController.swift */; };
 		4DD0A80C1BB69FAD0044564E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD0A80A1BB69FAD0044564E /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D29C5AE1BB6A424007AF244 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		4DD0A8031BB69FAD0044564E /* popOverSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = popOverSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD0A8061BB69FAD0044564E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DD0A8081BB69FAD0044564E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				4DD0A8061BB69FAD0044564E /* AppDelegate.swift */,
 				4DD0A8081BB69FAD0044564E /* ViewController.swift */,
+				4D29C5AE1BB6A424007AF244 /* SearchResultsViewController.swift */,
 				4DD0A80A1BB69FAD0044564E /* Main.storyboard */,
 				4DD0A80D1BB69FAD0044564E /* Assets.xcassets */,
 				4DD0A80F1BB69FAD0044564E /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DD0A8091BB69FAD0044564E /* ViewController.swift in Sources */,
+				4D29C5AF1BB6A424007AF244 /* SearchResultsViewController.swift in Sources */,
 				4DD0A8071BB69FAD0044564E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +256,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evenwerk.popOverSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -263,6 +268,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evenwerk.popOverSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -285,6 +291,7 @@
 				4DD0A8171BB69FAD0044564E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
