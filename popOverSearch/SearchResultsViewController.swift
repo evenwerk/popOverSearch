@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultsViewController: UIViewController {
+class SearchResultsViewController: UIViewController, SearchResultsDelegate {
 
     let contentArray = ["lorem", "ipsum", "dolor", "sit", "amet"]
     
@@ -28,26 +28,16 @@ class SearchResultsViewController: UIViewController {
     
     func searchForItemsWithString(searchQuery:String) {
         
-        if contentArray.count != 0 {
-            tableView.hidden = false
-            noItemsLabel.hidden = true
-
-        }
-        else {
-            tableView.hidden = true
-            noItemsLabel.hidden = false
-        }
+//        if contentArray.count != 0 {
+//            tableView.hidden = false
+//            noItemsLabel.hidden = true
+//
+//        }
+//        else {
+//            tableView.hidden = true
+//            noItemsLabel.hidden = false
+//        }
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

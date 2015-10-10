@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol SearchResultsDelegate {
+    func searchForItemsWithString(searchQuery:String)
+}
+
 class ViewController: UIViewController, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var toolbarConstraint: NSLayoutConstraint!
     var searchBar:UISearchBar!
     @IBOutlet weak var SearchPlaceholder: UIBarButtonItem!
     var searchResultsController = SearchResultsViewController()
+    var popover:UIPopoverPresentationController!
+    
+    var searchDelegate:SearchResultsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,33 +61,52 @@ class ViewController: UIViewController, UISearchBarDelegate, UIPopoverPresentati
     }
     
     //Searchbar delegate
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SearchBar" {
-            let popoverViewController = segue.destinationViewController
-            popoverViewController.popoverPresentationController!.delegate = self
+    
+    func createPopover() {
+        if popover == nil {
+            let navigationController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchResults") as! UINavigationController
+            navigationController.modalPresentationStyle = .Popover
+            popover = navigationController.popoverPresentationController
+            navigationController.preferredContentSize = CGSizeMake(320.0, 480.0)
+            popover.delegate = self
+            popover.sourceView = searchBar
+            popover.sourceRect = CGRectMake(0, 6, searchBar.bounds.width, searchBar.bounds.height)
+            popover.passthroughViews = [searchBar]
+            
+            self.presentViewController(navigationController, animated: true, completion: nil)
+            
+            searchResultsController = navigationController.topViewController as! SearchResultsViewController
+            searchDelegate = searchResultsController
         }
+    }
+    
+    func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        self.view.endEditing(true)
+        popover = nil
+        return true
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
-            performSegueWithIdentifier("SearchBar", sender: self)
-            searchResultsController.searchForItemsWithString(searchText)
+            createPopover()
+            searchDelegate?.searchForItemsWithString(searchText)
         }
         else {
             self.dismissViewControllerAnimated(true, completion: nil)
+            popover = nil
         }
     }
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
         
         if searchBar.text != "" {
-            
-            performSegueWithIdentifier("SearchBar", sender: self)
-            searchResultsController.searchForItemsWithString(searchBar.text!)
+            createPopover()
+            searchDelegate?.searchForItemsWithString(searchBar.text!)
         }
         
         return true
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
