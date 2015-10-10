@@ -28,15 +28,15 @@ class SearchResultsViewController: UIViewController, SearchResultsDelegate {
     
     func searchForItemsWithString(searchQuery:String) {
         
-//        if contentArray.count != 0 {
-//            tableView.hidden = false
-//            noItemsLabel.hidden = true
-//
-//        }
-//        else {
-//            tableView.hidden = true
-//            noItemsLabel.hidden = false
-//        }
+        if contentArray.count != 0 {
+            tableView.hidden = false
+            noItemsLabel.hidden = true
+
+        }
+        else {
+            tableView.hidden = true
+            noItemsLabel.hidden = false
+        }
         
     }
 
